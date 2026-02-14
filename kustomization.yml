@@ -10,7 +10,7 @@ resources:
 images:
 - name: 381491977261.dkr.ecr.us-east-1.amazonaws.com/eks-express/production/backend
   newName: 381491977261.dkr.ecr.us-east-1.amazonaws.com/eks-express/production/backend
-  newTag: latest
+  newTag: bbedda1bdbb3b35093c791436b9eada6305edecc
 - name: 381491977261.dkr.ecr.us-east-1.amazonaws.com/eks-express/production/frontend
   newName: 381491977261.dkr.ecr.us-east-1.amazonaws.com/eks-express/production/frontend
   newTag: latest
