@@ -1,0 +1,36 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: eks-express-ingress
+  annotations:
+    alb.ingress.kubernetes.io/load-balancer-name: eks-express-ingress
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/listener-ports: '[{"HTTPS": 443}]'
+    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:us-east-1:381491977261:certificate/abf7ceca-46b7-4d2b-ae58-6c57e85c2be4
+    external-dns.alpha.kubernetes.io/hostname: jar-ti.click
+    # Falta resolver o WAFv2 ACL ARN correto
+    # alb.ingress.kubernetes.io/wafv2-acl-arn: arn:aws:wafv2:us-east-1:381491977261:regional/webacl/waf-eks-express-webacl/12345678-1234-1234-1234-123456789012
+spec:
+  ingressClassName: alb
+  tls:
+  - hosts:
+    - jar-ti.click
+  rules:
+  # Explicit host helps avoid wildcard-only rules and DNS ambiguity.
+  - host: jar-ti.click
+    http:
+      paths:
+      - path: /backend
+        pathType: Prefix
+        backend:
+          service:
+            name: backend
+            port:
+              number: 80
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: frontend
+            port:
+              number: 80
