@@ -13,4 +13,4 @@ images:
   newTag: bbedda1bdbb3b35093c791436b9eada6305edecc
 - name: 381491977261.dkr.ecr.us-east-1.amazonaws.com/eks-express/production/frontend
   newName: 381491977261.dkr.ecr.us-east-1.amazonaws.com/eks-express/production/frontend
-  newTag: bbedda1bdbb3b35093c791436b9eada6305edecc
+  newTag: b528f6fc4a7d053233021af4ab009e23d8d67920
